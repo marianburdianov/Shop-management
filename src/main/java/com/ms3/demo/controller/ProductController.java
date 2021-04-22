@@ -11,27 +11,26 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/products")
 @Api(value = "product", description = "CRUD Operations for Product", tags = "PRODUCT")
 public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping
+    @GetMapping("/products")
     @ApiOperation(value = "GET ALL PRODUCTS", notes = "\n" + "This operation gets all products")
     public List<Product> getAllProducts() {
 
         return productService.getAllProducts();
     }
 
-    @GetMapping("/{productId}")
+    @GetMapping("/products/{productId}")
     @ApiOperation(value = "GET PRODUCT BY ID", notes = "\n" + "This operation get product by id")
     public Product getProductById(@PathVariable Long productId) {
 
         return productService.getProductById(productId);
     }
 
-    @PostMapping
+    @PostMapping("/products")
     @ApiOperation(value = "CREATE CUSTOMER", notes = "\n" + "This operation creates a customer")
     public Product addProduct(@RequestBody Product product) {
 
@@ -40,7 +39,7 @@ public class ProductController {
         return product;
     }
 
-    @PutMapping("/{productId}")
+    @PutMapping("/products/{productId}")
     @ApiOperation(value = "UPDATE PRODUCT", notes = "\n" + "This operation updates a existing product")
     public Product updateProduct(@RequestBody Product product, @PathVariable Long productId) {
 
@@ -48,7 +47,7 @@ public class ProductController {
         return product;
     }
 
-    @DeleteMapping("/{productId}")
+    @DeleteMapping("products/{productId}")
     @ApiOperation(value = "DELETE PRODUCT BY ID", notes = "\n" + "This operation delete product by id")
     public void deleteProductById(@PathVariable Long productId) {
 

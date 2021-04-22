@@ -11,27 +11,26 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping(value = "/purchaseInfo")
 @Api(value = "purchaseInfo", description = "CRUD Operations for PurchaseInfo", tags = "PURCHASEINFO")
 public class PurchaseInfoController {
 
     private final PurchaseInfoService purchaseInfoService;
 
-    @GetMapping
+    @GetMapping("/purchaseInfo")
     @ApiOperation(value = "GET ALL PURCHASEINFOS", notes = "\n" + "This operation gets all purchaseInfos")
     public List<PurchaseInfo> getAllPurchaseInfo() {
 
         return purchaseInfoService.getAllPurchaseInfo();
     }
 
-    @GetMapping("/{purchaseInfoId}")
+    @GetMapping("/purchaseInfo/{purchaseInfoId}")
     @ApiOperation(value = "GET PURCHASEINFO BY ID", notes = "\n" + "This operation get purchaseInfo by id")
     public PurchaseInfo getPurchaseInfoById(@PathVariable Long purchaseInfoId) {
 
         return purchaseInfoService.getPurchaseInfoById(purchaseInfoId);
     }
 
-    @PostMapping
+    @PostMapping("/purchaseInfo")
     @ApiOperation(value = "CREATE PURCHASEINFO", notes = "\n" + "This operation creates a purchaseInfo")
     public PurchaseInfo addPurchaseInfo(@RequestBody PurchaseInfo purchaseInfo) {
 
@@ -40,7 +39,7 @@ public class PurchaseInfoController {
         return purchaseInfo;
     }
 
-    @PutMapping(value = "/{purchaseInfoId}")
+    @PutMapping(value = "/purchaseInfo/{purchaseInfoId}")
     @ApiOperation(value = "UPDATE PURCHASEINFO", notes = "\n" + "This operation updates a existing purchaseInfo")
 
     public PurchaseInfo updatePurchaseInfo(@RequestBody PurchaseInfo purchaseInfo, @PathVariable Long purchaseInfoId) {
@@ -49,7 +48,7 @@ public class PurchaseInfoController {
         return purchaseInfo;
     }
 
-    @DeleteMapping("/{purchaseInfoId}")
+    @DeleteMapping("/purchaseInfo/{purchaseInfoId}")
     @ApiOperation(value = "DELETE PURCHASEINFO BY ID", notes = "\n" + "This operation delete purchaseInfo by id")
     public void deletePurchaseInfoById(@PathVariable Long purchaseInfoId) {
 
