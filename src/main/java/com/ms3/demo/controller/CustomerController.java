@@ -17,7 +17,7 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @GetMapping("/")
+    @GetMapping
     @ApiOperation(value = "GET ALL CUSTOMERS", notes = "\n" + "This operation gets all customers")
     public List<Customer> getAllCustomers() {
 
@@ -31,7 +31,7 @@ public class CustomerController {
         return customerService.getCustomerById(customerId);
     }
 
-    @PostMapping("/")
+    @PostMapping
     @ApiOperation(value = "CREATE CUSTOMER", notes = "\n" + "This operation creates a customer")
     public Customer addCustomer(@RequestBody Customer customer) {
 

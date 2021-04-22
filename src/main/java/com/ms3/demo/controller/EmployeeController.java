@@ -17,7 +17,7 @@ public class EmployeeController {
 
     private final EmployeeService employeeService;
 
-    @GetMapping("/")
+    @GetMapping
     @ApiOperation(value = "GET ALL EMPLOYEES", notes = "\n" + "This operation gets all employees")
     public List<Employee> getAllEmployees() {
 
@@ -31,7 +31,7 @@ public class EmployeeController {
         return employeeService.getEmployeeById(employeeId);
     }
 
-    @PostMapping("/")
+    @PostMapping
     @ApiOperation(value = "CREATE EMPLOYEE", notes = "\n" + "This operation creates an employee")
     public Employee addEmployee(@RequestBody Employee employee) {
 

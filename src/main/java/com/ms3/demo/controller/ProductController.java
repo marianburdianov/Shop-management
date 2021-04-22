@@ -17,7 +17,7 @@ public class ProductController {
 
     private final ProductService productService;
 
-    @GetMapping("/")
+    @GetMapping
     @ApiOperation(value = "GET ALL PRODUCTS", notes = "\n" + "This operation gets all products")
     public List<Product> getAllProducts() {
 
@@ -31,7 +31,7 @@ public class ProductController {
         return productService.getProductById(productId);
     }
 
-    @PostMapping("/")
+    @PostMapping
     @ApiOperation(value = "CREATE CUSTOMER", notes = "\n" + "This operation creates a customer")
     public Product addProduct(@RequestBody Product product) {
 

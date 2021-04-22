@@ -17,7 +17,7 @@ public class PurchaseInfoController {
 
     private final PurchaseInfoService purchaseInfoService;
 
-    @GetMapping("/")
+    @GetMapping
     @ApiOperation(value = "GET ALL PURCHASEINFOS", notes = "\n" + "This operation gets all purchaseInfos")
     public List<PurchaseInfo> getAllPurchaseInfo() {
 
@@ -31,7 +31,7 @@ public class PurchaseInfoController {
         return purchaseInfoService.getPurchaseInfoById(purchaseInfoId);
     }
 
-    @PostMapping("/")
+    @PostMapping
     @ApiOperation(value = "CREATE PURCHASEINFO", notes = "\n" + "This operation creates a purchaseInfo")
     public PurchaseInfo addPurchaseInfo(@RequestBody PurchaseInfo purchaseInfo) {
 
