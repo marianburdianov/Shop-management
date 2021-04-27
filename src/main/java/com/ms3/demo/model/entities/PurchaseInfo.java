@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -39,10 +39,10 @@ public class PurchaseInfo {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Product.class, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "purchaseinfos",
+            name = "purchaseinfos_products",
             joinColumns = @JoinColumn(name = "purchaseinfo_id"),
             inverseJoinColumns = @JoinColumn(name = "product_id"))
-    private List<Product> productList;
+    private Collection<Product> productSet;
 }

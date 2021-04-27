@@ -41,10 +41,10 @@ public class PurchaseInfoController {
 
     @PutMapping(value = "/purchaseInfo/{purchaseInfoId}")
     @ApiOperation(value = "UPDATE PURCHASEINFO", notes = "\n" + "This operation updates a existing purchaseInfo")
-
     public PurchaseInfo updatePurchaseInfo(@RequestBody PurchaseInfo purchaseInfo, @PathVariable Long purchaseInfoId) {
 
         purchaseInfoService.updatePurchaseInfoById(purchaseInfo, purchaseInfoId);
+
         return purchaseInfo;
     }
 

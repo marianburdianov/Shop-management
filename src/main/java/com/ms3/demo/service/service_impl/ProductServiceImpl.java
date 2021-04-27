@@ -35,12 +35,9 @@ public class ProductServiceImpl implements ProductService {
     public void updateProductById(Product productForUpdate, long productId) {
 
         Product product = productDao.findByProductId(productId);
-
-        product.setName(productForUpdate.getName());
-        product.setPrice(productForUpdate.getPrice());
-        product.setQuantity(productForUpdate.getQuantity());
-
-        productDao.save(product);
+        if (product != null) {
+            productDao.save(productForUpdate);
+        }
     }
 
     @Override

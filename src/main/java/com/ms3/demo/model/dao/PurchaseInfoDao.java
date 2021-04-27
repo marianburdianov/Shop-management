@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface PurchaseInfoDao extends JpaRepository<PurchaseInfo, Long> {
 
     PurchaseInfo findByPurchaseInfoId(Long id);
+
+    void deleteById(Long id);
 }

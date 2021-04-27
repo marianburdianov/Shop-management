@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Collection;
 
 @Entity
 @Data
@@ -31,7 +31,8 @@ public class Product {
     @Column(name = "quantity")
     private Integer quantity;
 
-    @ManyToMany(mappedBy = "productList", fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = PurchaseInfo.class, mappedBy = "productSet")
     @JsonBackReference("products")
-    private List<PurchaseInfo> purchaseInfoList;
+    private Collection<PurchaseInfo> purchaseInfoSet;
+
 }

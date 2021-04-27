@@ -33,13 +33,14 @@ public class PurchaseInfoImpl implements PurchaseInfoService {
 
     @Override
     public void updatePurchaseInfoById(PurchaseInfo purchaseInfoForUpdate, long purchaseInfoId) {
-
         PurchaseInfo purchaseInfo = purchaseInfoDao.findByPurchaseInfoId(purchaseInfoId);
 
         purchaseInfo.setCost(purchaseInfoForUpdate.getCost());
         purchaseInfo.setAmount(purchaseInfoForUpdate.getAmount());
         purchaseInfo.setDate(purchaseInfoForUpdate.getDate());
-        purchaseInfo.setProductList(purchaseInfoForUpdate.getProductList());
+        purchaseInfo.setEmployee(purchaseInfoForUpdate.getEmployee());
+        purchaseInfo.setCustomer(purchaseInfoForUpdate.getCustomer());
+        purchaseInfo.setProductSet(purchaseInfoForUpdate.getProductSet());
 
         purchaseInfoDao.save(purchaseInfo);
     }
