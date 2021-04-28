@@ -32,7 +32,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void updateEmployeeById(Employee employeeForUpdate, long employeeId) {
+    public Employee updateEmployeeById(Employee employeeForUpdate, long employeeId) {
 
         Employee employee = employeeDao.findByEmployeeId(employeeId);
 
@@ -44,7 +44,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         employee.setRole(employeeForUpdate.getRole());
         employee.setSalary(employeeForUpdate.getSalary());
 
-        employeeDao.save(employee);
+        return employeeDao.save(employee);
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface PurchaseInfoService {
 
     PurchaseInfo createPurchaseInfo(PurchaseInfo purchaseInfo);
 
-    void updatePurchaseInfoById(PurchaseInfo purchaseInfo, long purchaseInfoId);
+    PurchaseInfo updatePurchaseInfoById(PurchaseInfo purchaseInfo, long purchaseInfoId);
 
     void deletePurchaseInfoById(long purchaseInfoId);
 

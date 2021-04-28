@@ -32,7 +32,7 @@ public class PurchaseInfoImpl implements PurchaseInfoService {
     }
 
     @Override
-    public void updatePurchaseInfoById(PurchaseInfo purchaseInfoForUpdate, long purchaseInfoId) {
+    public PurchaseInfo updatePurchaseInfoById(PurchaseInfo purchaseInfoForUpdate, long purchaseInfoId) {
         PurchaseInfo purchaseInfo = purchaseInfoDao.findByPurchaseInfoId(purchaseInfoId);
 
         purchaseInfo.setCost(purchaseInfoForUpdate.getCost());
@@ -42,7 +42,7 @@ public class PurchaseInfoImpl implements PurchaseInfoService {
         purchaseInfo.setCustomer(purchaseInfoForUpdate.getCustomer());
         purchaseInfo.setProductSet(purchaseInfoForUpdate.getProductSet());
 
-        purchaseInfoDao.save(purchaseInfo);
+        return purchaseInfoDao.save(purchaseInfo);
     }
 
     @Override

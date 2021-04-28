@@ -12,7 +12,7 @@ public interface CustomerService {
 
     Customer getCustomerById(Long customerId);
 
-    void updateCustomerById(Customer customer, Long customerId);
+    Customer updateCustomerById(Customer customer, Long customerId);
 
     void deleteCustomerById(Long customerId);
 }

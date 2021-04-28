@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void updateCustomerById(Customer customerForUpdate, Long customerId) {
+    public Customer updateCustomerById(Customer customerForUpdate, Long customerId) {
 
         Customer customer = customerDao.findByCustomerId(customerId);
 
@@ -41,7 +41,7 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setLastName(customerForUpdate.getLastName());
         customer.setPhoneNumber(customerForUpdate.getPhoneNumber());
 
-        customerDao.save(customer);
+        return customerDao.save(customer);
     }
 
     @Override
