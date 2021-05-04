@@ -1,24 +1,3 @@
-# CREATE TABLE purchaseinfos
-# (
-#     purchaseinfo_id BIGINT  NOT NULL,
-#     employee_id     BIGINT DEFAULT NULL,
-#     customer_id     BIGINT DEFAULT NULL,
-#     product_id      BIGINT  NOT NULL,
-#     cost            DOUBLE  NULL,
-#     amount          INTEGER NULL,
-#     date            DATE    NULL,
-#     PRIMARY KEY (purchaseinfo_id),
-#     CONSTRAINT purchase_employee_id
-#         FOREIGN KEY (employee_id)
-#             REFERENCES shop_management_db.employees (employee_id) ON DELETE CASCADE,
-#     CONSTRAINT purchase_customer_id
-#         FOREIGN KEY (customer_id)
-#             REFERENCES shop_management_db.customers (customer_id) ON DELETE CASCADE,
-#     CONSTRAINT purchase_product_id
-#         FOREIGN KEY (product_id)
-#             REFERENCES shop_management_db.products (product_id) ON DELETE CASCADE
-# );
-
 CREATE TABLE purchaseinfos
 (
     purchaseinfo_id BIGINT  NOT NULL,
@@ -29,10 +8,12 @@ CREATE TABLE purchaseinfos
     date            DATE    NULL,
     CONSTRAINT purchase_employee_id
         FOREIGN KEY (employee_id)
-            REFERENCES shop_management_db.employees (employee_id),
+            REFERENCES shop_management_db.employees (employee_id)
+            ON DELETE CASCADE,
     CONSTRAINT purchase_customer_id
         FOREIGN KEY (customer_id)
-            REFERENCES shop_management_db.customers (customer_id),
+            REFERENCES shop_management_db.customers (customer_id)
+            ON DELETE CASCADE,
     PRIMARY KEY (purchaseinfo_id)
 );
 

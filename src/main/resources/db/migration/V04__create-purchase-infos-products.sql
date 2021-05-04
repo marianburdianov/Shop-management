@@ -6,13 +6,13 @@ CREATE TABLE purchaseinfos_products
     CONSTRAINT fk_purchase_id
         FOREIGN KEY (purchaseinfo_id)
             REFERENCES shop_management_db.purchaseinfos (purchaseinfo_id)
-            on delete set null
-            on update set null,
+            ON DELETE SET NULL
+            ON UPDATE SET NULL,
     CONSTRAINT fk_product_id
         FOREIGN KEY (product_id)
             REFERENCES shop_management_db.products (product_id)
-            on delete set null
-            on update set null
+            ON DELETE SET NULL
+            ON UPDATE SET NULL
 );
 
 INSERT INTO purchaseinfos_products

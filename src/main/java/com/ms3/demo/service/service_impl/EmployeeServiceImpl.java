@@ -4,6 +4,8 @@ import com.ms3.demo.model.dao.EmployeeDao;
 import com.ms3.demo.model.entities.Employee;
 import com.ms3.demo.service.service_decl.EmployeeService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationContextException;
+import org.springframework.context.event.ApplicationContextEvent;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +36,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee updateEmployeeById(Employee employeeForUpdate, long employeeId) {
 
-        Employee employee = employeeDao.findByEmployeeId(employeeId);
+        final Employee employee = employeeDao.findById(employeeId).orElseThrow(() -> new ApplicationContextException("Employee not found"));
 
         employee.setFirstName(employeeForUpdate.getFirstName());
         employee.setLastName(employeeForUpdate.getLastName());
@@ -49,6 +51,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public void deleteEmployeeById(long employeeId) {
-        employeeDao.delete(getEmployeeById(employeeId));
+
+        employeeDao.deleteById(employeeId);
     }
 }

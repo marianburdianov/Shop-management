@@ -4,6 +4,7 @@ import com.ms3.demo.model.dao.PurchaseInfoDao;
 import com.ms3.demo.model.entities.PurchaseInfo;
 import com.ms3.demo.service.service_decl.PurchaseInfoService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -33,7 +34,8 @@ public class PurchaseInfoImpl implements PurchaseInfoService {
 
     @Override
     public PurchaseInfo updatePurchaseInfoById(PurchaseInfo purchaseInfoForUpdate, long purchaseInfoId) {
-        PurchaseInfo purchaseInfo = purchaseInfoDao.findByPurchaseInfoId(purchaseInfoId);
+
+        final PurchaseInfo purchaseInfo = purchaseInfoDao.findById(purchaseInfoId).orElseThrow(() -> new ApplicationContextException("PurchaseInfo not found"));
 
         purchaseInfo.setCost(purchaseInfoForUpdate.getCost());
         purchaseInfo.setAmount(purchaseInfoForUpdate.getAmount());
@@ -47,6 +49,6 @@ public class PurchaseInfoImpl implements PurchaseInfoService {
 
     @Override
     public void deletePurchaseInfoById(long purchaseInfoId) {
-        purchaseInfoDao.delete(getPurchaseInfoById(purchaseInfoId));
+        purchaseInfoDao.deleteById(purchaseInfoId);
     }
 }

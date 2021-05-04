@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import java.util.List;
@@ -14,9 +16,10 @@ import java.util.List;
 @Setter
 @Getter
 @RequiredArgsConstructor
+@Component
 @Table(name = "customers")
 public class Customer {
-    
+
     @Id
     @GeneratedValue(generator = "increment")
     @Column(name = "customer_id")

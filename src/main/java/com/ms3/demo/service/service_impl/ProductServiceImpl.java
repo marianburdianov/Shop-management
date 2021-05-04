@@ -4,6 +4,7 @@ import com.ms3.demo.model.dao.ProductDao;
 import com.ms3.demo.model.entities.Product;
 import com.ms3.demo.service.service_decl.ProductService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product updateProductById(Product productForUpdate, long productId) {
 
-        Product product = productDao.findByProductId(productId);
+        final Product product = productDao.findById(productId).orElseThrow(() -> new ApplicationContextException("Product not found"));
 
         product.setName(productForUpdate.getName());
         product.setPrice(productForUpdate.getPrice());
@@ -45,6 +46,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public void deleteProductById(long productId) {
-        productDao.delete(getProductById(productId));
+
+        productDao.deleteById(productId);
     }
 }

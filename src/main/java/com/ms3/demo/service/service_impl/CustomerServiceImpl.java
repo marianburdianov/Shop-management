@@ -4,6 +4,7 @@ import com.ms3.demo.model.dao.CustomerDao;
 import com.ms3.demo.model.entities.Customer;
 import com.ms3.demo.service.service_decl.CustomerService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.context.ApplicationContextException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,19 +35,21 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public Customer updateCustomerById(Customer customerForUpdate, Long customerId) {
 
-        Customer customer = customerDao.findByCustomerId(customerId);
+        final Customer updatedCustomer = customerDao.findById(customerId).orElseThrow(() -> new ApplicationContextException("Customer not found"));
 
-        customer.setAddress(customerForUpdate.getAddress());
-        customer.setFirstName(customerForUpdate.getFirstName());
-        customer.setLastName(customerForUpdate.getLastName());
-        customer.setPhoneNumber(customerForUpdate.getPhoneNumber());
+        updatedCustomer.setFirstName(customerForUpdate.getFirstName());
+        updatedCustomer.setLastName(customerForUpdate.getLastName());
+        updatedCustomer.setPhoneNumber(customerForUpdate.getPhoneNumber());
+        updatedCustomer.setAddress(customerForUpdate.getAddress());
 
-        return customerDao.save(customer);
+        customerDao.save(updatedCustomer);
+
+        return updatedCustomer;
     }
 
     @Override
     public void deleteCustomerById(Long customerId) {
 
-        customerDao.delete(getCustomerById(customerId));
+        customerDao.deleteById(customerId);
     }
 }
