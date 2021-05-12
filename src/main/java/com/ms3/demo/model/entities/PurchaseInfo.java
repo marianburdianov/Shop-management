@@ -39,7 +39,7 @@ public class PurchaseInfo {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    @ManyToMany(targetEntity = Product.class, fetch = FetchType.LAZY)
+    @ManyToMany(targetEntity = Product.class, fetch = FetchType.EAGER)
     @JoinTable(
             name = "purchaseinfos_products",
             joinColumns = @JoinColumn(name = "purchaseinfo_id"),
