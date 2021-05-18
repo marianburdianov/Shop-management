@@ -108,6 +108,8 @@
                 </configuration>
             </plugin>
         </plugins>
+<!--        will create jar with this name-->
+        <finalName>docker-jenkins-integration</finalName>
     </build>
 
 </project>
