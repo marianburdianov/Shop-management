@@ -1,25 +1,45 @@
 pipeline {
-    agent {
-        docker {
-            image 'maven:docker-jenkins-integration'
-            args '-v /root/.m2:/root/.m2'
-        }
-    }
+    agent any
     stages {
-        stage('Build') {
+        stage("build") {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                echo 'building the application...'
             }
         }
-        stage('Test') {
+        stage("test") {
             steps {
-                sh 'mvn test'
+                echo 'testing the application...'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
+        }
+        stage("deploy") {
+            steps {
+                echo 'deploying the application...'
             }
         }
     }
 }
+// pipeline {
+//     agent {
+//         docker {
+//             image 'maven:docker-jenkins-integration'
+//             args '-v /root/.m2:/root/.m2'
+//         }
+//     }
+//     stages {
+//         stage('Build') {
+//             steps {
+//                 sh 'mvn -B -DskipTests clean package'
+//             }
+//         }
+//         stage('Test') {
+//             steps {
+//                 sh 'mvn test'
+//             }
+//             post {
+//                 always {
+//                     junit 'target/surefire-reports/*.xml'
+//                 }
+//             }
+//         }
+//     }
+// }
