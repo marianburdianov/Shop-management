@@ -1,14 +1,14 @@
 pipeline {
     agent any
     stages {
-        stage("Read form Maven POM") {
-            steps {
-                script {
-                    projectArtifactId = readMavenPom().getArtifactId()
-                    projectVersion = readMavenPom.getModelVersion()
-                }
-                echo "building ${projectArtifactId}:${projectVersion}"
-            }
+         stage("Read from Maven POM"){
+              steps{
+                   script{
+                        projectArtifactId = readMavenPom().getArtifactId()
+                        projectVersion = readMavenPom().getModelVersion()
+                  }
+                  echo "Building ${projectArtifactId}:${projectVersion}"
+             }
         }
         stage("test") {
             steps {
