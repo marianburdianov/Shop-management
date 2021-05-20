@@ -24,7 +24,7 @@ pipeline {
         stage("Newman Test") {
             steps {
                 echo "Starting Newman Test"
-                bat "newman run --disable-unicode https://www.getpostman.com/collections/4ed4489c4178ef86bfe4"
+                bat "newman run https://www.getpostman.com/collections/4ed4489c4178ef86bfe4"
             }
         }
     }
