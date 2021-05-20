@@ -16,6 +16,12 @@ pipeline {
                 bat "mvn test"
             }
         }
+        stage("Newman Test") {
+            steps {
+                echo "Starting Newman Test"
+                bat "newman run --disable-unicode https://www.getpostman.com/collections/345d1665e5bdd9ca448e"
+            }
+        }
         stage("Build JAR file") {
             steps {
                 bat "mvn install -Dmaven.test.skip=true"
