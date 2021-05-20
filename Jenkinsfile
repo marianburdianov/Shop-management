@@ -2,13 +2,15 @@ pipeline {
     agent any
     stages {
         stage("Read form Maven POM") {
-            steps {
+            sh "mvn -N help:pom -Doutput=target/pom.xml"
                 script {
-                    projectArtifactId = readMavenPom().getArtifactId()
-                    projectVersion = readMavenPom.getModelVersion()
+                    pom = readMavenPom(file: 'target/pom-effective.xml')
+                    projectArtifactId = pom.getArtifactId()
+                    projectGroupId = pom.getGroupId()
+                    projectVersion = pom.getVersion()
+                    projectName = pom.getName()
                 }
-                echo 'building the application...'
-            }
+                echo "Building ${projectArtifactId}:${projectVersion}"
         }
         stage("test") {
             steps {
