@@ -27,16 +27,6 @@ pipeline {
                 bat "newman run --disable-unicode https://www.getpostman.com/collections/4ed4489c4178ef86bfe4"
             }
         }
-        stage("test") {
-            steps {
-                echo 'testing the application...'
-            }
-        }
-        stage("deploy") {
-            steps {
-                echo 'deploying the application...'
-            }
-        }
     }
 }
 // pipeline {
