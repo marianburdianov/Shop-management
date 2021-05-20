@@ -1,19 +1,24 @@
 pipeline {
     agent any
     stages {
-        stage("Read from Maven POM"){
+        stage("Read from Maven POM") {
             steps{
-                script{
+                script {
                     projectArtifactId = readMavenPom().getArtifactId()
                     projectVersion = readMavenPom().getModelVersion()
                 }
                 echo "Building ${projectArtifactId}:${projectVersion}"
             }
         }
-        stage("Test"){
+        stage("Test") {
             steps {
                 bat "mvn -version"
                 bat "mvn test"
+            }
+        }
+        stage("Build JAR file") {
+            steps {
+                bat "mvn install -Dmaven.test.skip=true"
             }
         }
         stage("test") {
