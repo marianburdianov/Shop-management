@@ -30,7 +30,7 @@ pipeline {
         stage("JMeter Loading Test") {
             steps {
                 echo "Starting the JMeter Loading Test"
-                bat "C:/Users/maria/Downloads/apache-jmeter-5.4.1/apache-jmeter-5.4.1/bin/jmeter -jjmeter.save.saveservice.output_format.xml -n -t D:/ShopManagement.jmx -l D:/report.jtl"
+                bat "C:/Users/maria/Downloads/apache-jmeter-5.4.1/apache-jmeter-5.4.1/bin/jmeter -jjmeter.save.saveservice.output_format.xml -n -t D:/MarianOptimal/JMeter/shop-management.jmx -l D:/report.jtl"
             }
         }
     }
