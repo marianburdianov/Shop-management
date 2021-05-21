@@ -5,7 +5,7 @@ pipeline {
             steps{
                 script {
                     projectArtifactId = readMavenPom().getArtifactId()
-                    projectVersion = readMavenPom().getModelVersion()
+                    projectVersion = readMavenPom().getVersion()
                 }
                 echo "Building ${projectArtifactId}:${projectVersion}"
             }

@@ -15,7 +15,7 @@ services:
       - 5432:3306
 
   service:
-    image: marianburdianov/shop-management:4.0.0
+    image: marianburdianov/shop-management:0.0.1-SNAPSHOT
     container_name: service
     depends_on:
       - db
