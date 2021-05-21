@@ -40,7 +40,7 @@ pipeline {
                    waitUntil(initialRecurrencePeriod: 2000) {
                        script {
                            def result =
-                           sh script: "curl --silent http://localhost:8282/products",
+                           bat "curl --silent http://localhost:8282/products",
                            returnStatus: true
                            return (result == 0)
                        }
