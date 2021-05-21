@@ -35,12 +35,12 @@ pipeline {
         }
         stage("Deploy") {
            steps {
-               bat "docker compose up --file docker-compose.yml up --detach"
+               bat "docker-compose --file docker-compose.yml up --detach"
                timeout(time: 60, unit: 'SECONDS') {
                    waitUntil(initialRecurrencePeriod: 2000) {
                        script {
                            def result =
-                           sh script: "curl --silent --output /dev/null http://localhost:8282/products",
+                           sh script: "curl --silent http://localhost:8282/products",
                            returnStatus: true
                            return (result == 0)
                        }
