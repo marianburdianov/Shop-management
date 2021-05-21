@@ -1,4 +1,9 @@
 FROM openjdk:14
-EXPOSE 8080
-ADD target/docker-jenkins-integration.jar docker-jenkins-integration.jar
-ENTRYPOINT ["java","-jar","/docker-jenkins-integration.jar"]
+#FROM bash:4.4
+#FROM alpine:3.7
+# Copy jar file
+COPY target/*.jar  /opt/docker-jenkins-integration.jar
+ADD wrapper.sh wrapper.sh
+#RUN apk add --no-cache bash
+RUN bash -c 'chmod +x /wrapper.sh'
+ENTRYPOINT ["/bin/bash", "/wrapper.sh"]
