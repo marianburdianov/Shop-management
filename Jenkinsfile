@@ -24,7 +24,7 @@ pipeline {
         stage("JMeter Loading Test") {
             steps {
                 echo "Starting the JMeter Loading Test"
-                bat "jmeter -jjmeter.save.saveservice.output_format.xml -n -t D:/RestaurantAPI.jmx -l D:/report.jtl"
+                bat "jmeter -jjmeter.save.saveservice.output_format.xml -n -t D:/ShopManagement.jmx -l D:/report.jtl"
             }
         }
         stage("Newman Test") {
