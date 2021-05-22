@@ -24,6 +24,7 @@ pipeline {
         stage("Build image") {
             steps {
                 echo "Building service image and pushing it to DockerHub"
+                echo "Building service image and pushing it to DockerHub"
                     withCredentials([usernamePassword(credentialsId: 'Docker', usernameVariable: "dockerLogin",
                         passwordVariable: "dockerPassword")]) {
                             bat "docker login -u ${dockerLogin} -p ${dockerPassword}"
