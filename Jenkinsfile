@@ -38,7 +38,8 @@ pipeline {
                timeout(time: 60, unit: 'SECONDS') {
                    waitUntil(initialRecurrencePeriod: 2000) {
                        script {
-                           def result = sh script: "curl --silent http://localhost:8282/products", returnStatus: true return (result == 0)
+                           def result = sh script: "curl --silent http://localhost:8282/products", returnStatus: true
+                           return (result == 0)
                        }
                    }
                }
