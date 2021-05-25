@@ -7,7 +7,8 @@ import org.springframework.context.annotation.PropertySource;
 
 @Data
 @Configuration
-@PropertySource("application-${spring.profiles.active}.properties")
+@PropertySource("classpath:application-${spring.profiles.active}.properties")
+//PropertySource("classpath:/com/myco/app.properties")
 public class DBConstants {
     @Value("${db_driver}")
     private String db_driver;
