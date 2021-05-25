@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 while ! exec 6<>/dev/tcp/"${DATABASE_HOST}"/"${DATABASE_PORT}"; do
 
     echo "Trying to connect to MySql at ${DATABASE_HOST}:${DATABASE_PORT}..."
