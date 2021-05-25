@@ -1,4 +1,4 @@
-FROM openjdk:14
+FROM openjdk:15
 #FROM bash:4.4
 #FROM alpine:3.7
 # Copy jar file
