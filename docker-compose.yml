@@ -1,7 +1,8 @@
 version: '3.7'
 services:
-  mysqldb:
+  db:
     image: mysql
+    container_name: mysqldb
     restart: always
     volumes:
       - "/src/main/resources/init.sql:/docker-entrypoint-initdb.d/"
@@ -17,7 +18,7 @@ services:
     image: marianburdianov/shop-management:0.0.1-SNAPSHOT
     container_name: service
     depends_on:
-      - mysqldb
+      - db
     ports:
       - 8282:8282
     environment:
