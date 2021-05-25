@@ -2,11 +2,11 @@ package com.ms3.demo.config;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
 
 @Data
-@Component
+@Configuration
 @PropertySource("application-${spring.profiles.active}.properties")
 public class DBConstants {
     @Value("${db_driver}")
