@@ -6,7 +6,7 @@ The following repo contains a shop-management application.
 
 ### Used technologies:
 
-   Spring Boot, Spring Security Basic, Spring Security JwtToken, Maven, FlyWay, MySql, Jenkins, Docker
+   Spring Boot, Spring Security Basic, Spring Security JwtToken, Maven, FlyWay, MySql, Jenkins, Docker.
    
 ## Guidelines
 
