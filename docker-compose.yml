@@ -6,10 +6,10 @@ services:
     volumes:
       - "/src/main/resources/init.sql:/docker-entrypoint-initdb.d/"
     environment:
-      - MYSQL_ROOT_PASSWORD=marian>lidia
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=shop_management_db
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=marian>lidia
+      - MYSQL_USER=oshuser
+      - MYSQL_PASSWORD=oshuser
     ports:
       - 5432:3306
 
@@ -22,7 +22,7 @@ services:
       - 8282:8282
     environment:
       - DATABASE_HOST=mysqldb
-      - DATABASE_USER=root
-      - DATABASE_PASSWORD=marian>lidia
+      - DATABASE_USER=oshuser
+      - DATABASE_PASSWORD=oshuser
       - DATABASE_NAME=shop_management_db
       - DATABASE_PORT=3306
