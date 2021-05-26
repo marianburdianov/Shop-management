@@ -9,7 +9,7 @@ services:
       - MYSQL_ROOT_PASSWORD=marian>lidia
       - MYSQL_DATABASE=shop_management_db
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
+      - MYSQL_PASSWORD=marian>lidia
     ports:
       - 5432:3306
 
@@ -23,6 +23,6 @@ services:
     environment:
       - DATABASE_HOST=mysqldb
       - DATABASE_USER=root
-      - DATABASE_PASSWORD=root
+      - DATABASE_PASSWORD=marian>lidia
       - DATABASE_NAME=shop_management_db
       - DATABASE_PORT=3306
