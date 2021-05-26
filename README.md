@@ -35,4 +35,6 @@ to populate database run from terminal:
 
 **mvn flyway:migrate**
 
+### Application
+
 After successful execution run the application from the DemoApplication class  
