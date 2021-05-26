@@ -8,8 +8,8 @@ services:
     environment:
       - MYSQL_ROOT_PASSWORD=marian>lidia
       - MYSQL_DATABASE=shop_management_db
-      - MYSQL_USER=oshuser
-      - MYSQL_PASSWORD=oshuser
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=root
     ports:
       - 5432:3306
 
@@ -22,7 +22,7 @@ services:
       - 8282:8282
     environment:
       - DATABASE_HOST=mysqldb
-      - DATABASE_USER=oshuser
-      - DATABASE_PASSWORD=oshuser
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
       - DATABASE_NAME=shop_management_db
       - DATABASE_PORT=3306
