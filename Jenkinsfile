@@ -37,10 +37,10 @@ pipeline {
                bat "docker-compose --file D:/MarianOptimal/JavaProjects/MS3ShopManagementSystem/shop-management/docker-compose.yml up --detach"
                timeout(time: 60, unit: 'SECONDS') {
                    waitUntil(initialRecurrencePeriod: 2000) {
-                       script {
-                           def result = sh script: "curl --silent http://localhost:8282/products", returnStatus: true
-                           return (result == 0)
-                       }
+//                        script {
+//                            def result = sh script: "curl --silent http://localhost:8282/products", returnStatus: true
+//                            return (result == 0)
+//                        }
                    }
                }
                echo "Server is up"
