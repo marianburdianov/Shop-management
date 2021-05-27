@@ -19,7 +19,7 @@ services:
     depends_on:
       - mysqldb
     ports:
-      - 8282:8282
+      - 8282:8090
     environment:
       - DATABASE_HOST=mysqldb
       - DATABASE_USER=oshuser
