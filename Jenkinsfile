@@ -39,9 +39,7 @@ pipeline {
                    waitUntil(initialRecurrencePeriod: 2000) {
                        script {
 //                            def result = sh script: "curl --silent http://localhost:8282/products", returnStatus: true
-                            def result = sh script: "curl --silent X POST http://localhost:8282/login
-                            -H "Content-Type: application/json"
-                            -d "{\"userName\":\"admin\",\"password\":\"admin\"}""
+                            def result = sh script: "curl --silent X POST http://localhost:8282/login -H "Content-Type: application/json" -d "{\"userName\":\"admin\",\"password\":\"admin\"}"", returnStatus: true
                            return (result == 0)
                        }
                    }
