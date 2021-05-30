@@ -42,6 +42,7 @@ pipeline {
                            return (result == 0)
                        }
                    }
+               }
                echo "Server is up"
            }
         }
