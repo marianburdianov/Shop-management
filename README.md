@@ -54,3 +54,9 @@ Click New Item on the left.
 Create a multibranch pipeline job.
 
 Configure and execute a pipeline job.
+
+### How to pull image from Docker registry and run using Docker Compose
+
+**$ docker pull shop-management**
+
+**$ docker-compose --file docker-compose.yml up --detach**
