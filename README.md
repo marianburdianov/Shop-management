@@ -8,7 +8,9 @@ The following repo contains a shop-management application.
 
    Spring Boot, Spring Security Basic, Spring Security JwtToken, Maven, FlyWay, MySql, Jenkins, Docker.
 
-![img.png](img.png)
+### ER Diagram
+
+![img_1.png](img_1.png)
 
 ## Guidelines
 
