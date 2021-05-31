@@ -45,3 +45,12 @@ After successful execution run the application from terminal:
 
 **mvn spring-boot:run**
 
+### How to set up and run CI/CD pipeline using in Jenkins
+
+Open a web browser and navigate to localhost:8080.
+
+Click New Item on the left.
+
+Create a multibranch pipeline job.
+
+Configure and execute a pipeline job.
