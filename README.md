@@ -7,7 +7,9 @@ The following repo contains a shop-management application.
 ### Used technologies:
 
    Spring Boot, Spring Security Basic, Spring Security JwtToken, Maven, FlyWay, MySql, Jenkins, Docker.
-   
+
+![img.png](img.png)
+
 ## Guidelines
 
 1. Clone this repository
@@ -37,6 +39,7 @@ to populate database run from terminal:
 
 ### Application
 
-After successful execution run the application from the DemoApplication class  
+After successful execution run the application from terminal:
 
-![img.png](img.png)
+**mvn spring-boot:run**
+
