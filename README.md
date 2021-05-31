@@ -38,3 +38,5 @@ to populate database run from terminal:
 ### Application
 
 After successful execution run the application from the DemoApplication class  
+
+![img.png](img.png)
