@@ -49,7 +49,7 @@ pipeline {
         stage("Newman Test") {
             steps {
                 echo "Starting Newman Test"
-                bat "C:/Users/maria/AppData/Roaming/npm/newman run --disable-unicode https://www.getpostman.com/collections/4ed4489c4178ef86bfe4"
+                bat "C:/Users/maria/AppData/Roaming/npm/newman run --disable-unicode https://www.getpostman.com/collections/335e4231bf6ccd1f5a87"
             }
         }
         stage("JMeter Loading Test") {
