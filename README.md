@@ -8,7 +8,7 @@ Main purpose of this application is to maintain workflow of a shop.
 
 ### Used technologies:
 
-   Spring Boot, Spring Security Basic, Spring Security JwtToken, Maven, FlyWay, MySql, Jenkins, Docker.
+   Spring Boot, Spring Security Basic, Spring Security JSON Web Token, Maven, FlyWay, MySql, Jenkins, Docker.
 
 ### ER Diagram
 
